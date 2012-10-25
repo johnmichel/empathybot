@@ -22,7 +22,7 @@ helpContents = (name, commands) ->
       background: #d3d6d9;
       color: #636c75;
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      padidng: 10px 50px 0px;
+      padding: 10px 50px 0px;
       text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
     }
     h1 {
