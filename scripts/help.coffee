@@ -21,10 +21,12 @@ helpContents = (name, commands) ->
     body {
       background: #d3d6d9;
       color: #636c75;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      padidng: 10px 50px 0px;
       text-shadow: 0 1px 1px rgba(255, 255, 255, .5);
-      font-family: Helvetica, Arial, sans-serif;
     }
     h1 {
+      color: #f1863b;
       margin: 8px 0;
       padding: 0;
     }
@@ -52,16 +54,17 @@ helpContents = (name, commands) ->
 
 module.exports = (robot) ->
   robot.respond /help\s*(.*)?$/i, (msg) ->
-    cmds = robot.helpCommands()
+    
+    # cmds = robot.helpCommands()
+    #
+    # if msg.match[1]
+    #   cmds = cmds.filter (cmd) ->
+    #     cmd.match new RegExp(msg.match[1], 'i')
 
-    if msg.match[1]
-      cmds = cmds.filter (cmd) ->
-        cmd.match new RegExp(msg.match[1], 'i')
+    emit = "please visit http://empathybot.herokuapp.com/ for a list of valid commands"
 
-    emit = cmds.join "\n"
-
-    unless robot.name.toLowerCase() is 'hubot'
-      emit = emit.replace /hubot/ig, robot.name
+    # unless robot.name.toLowerCase() is 'hubot'
+    #   emit = emit.replace /hubot/ig, robot.name
 
     msg.send emit
 
