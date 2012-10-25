@@ -1,4 +1,4 @@
-# Description: 
+# Description:
 #   Generates help commands for Hubot.
 #
 # Commands:
@@ -6,7 +6,7 @@
 #   hubot help <query> - Displays all help commands that match <query>.
 #
 # URLS:
-#   /hubot/help
+#   /
 #
 # Notes:
 #   These commands are grabbed from comment blocks at the top of each file.
@@ -65,7 +65,7 @@ module.exports = (robot) ->
 
     msg.send emit
 
-  robot.router.get '/hubot/help', (req, res) ->
+  robot.router.get '/', (req, res) ->
     cmds = robot.helpCommands()
     emit = "<p>#{cmds.join '</p><p>'}</p>"
 
