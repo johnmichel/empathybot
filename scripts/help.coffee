@@ -69,7 +69,11 @@ module.exports = (robot) ->
     msg.send emit
 
   robot.router.get '/', (req, res) ->
-    cmds = robot.helpCommands()
+    # fixing <user> getting gobbled up by browsers
+    # via https://github.com/github/hubot/commit/91d75738708a1236b47c3876a40a89f221a5d522#L0R70
+    cmds = robot.helpCommands().map (cmd) ->
+      cmd.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    
     emit = "<p>#{cmds.join '</p><p>'}</p>"
 
     emit = emit.replace /hubot/ig, "<b>#{robot.name}</b>"
