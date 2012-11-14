@@ -26,10 +26,10 @@ module.exports = (robot) ->
   for key in sources
     query = sources[key] + key
 
-    hearPattern = new Regexp('(!' + key + ')(.*)?', 'i')
-    robot.hear (hearPattern) ->
+    hearPattern = new RegExp('(!' + key + ')(.*)?', 'i')
+    robot.hear hearPattern ->
       msg.send query
 
-    respondPattern = new Regexp('(' + key + ')(.*)?', 'i')
+    respondPattern = new RegExp('(' + key + ')(.*)?', 'i')
     robot.respond respondPattern ->
       msg.send query
