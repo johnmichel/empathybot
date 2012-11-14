@@ -24,8 +24,8 @@ sources =
 
 module.exports = (robot) ->
   for key in sources
-    robot.hear new Regexp('(!' + key + ')(.*)?')
+    robot.hear (new Regexp('(!' + key + ')(.*)?', 'i')) ->
       msg.send sources[key] + key
-    robot.respond new Regexp('(' + key + ')(.*)?')
+    robot.respond (new Regexp('(' + key + ')(.*)?', 'i')) ->
       msg.send sources[key] + key
 
