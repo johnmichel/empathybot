@@ -1,38 +1,31 @@
 # Description:
-#   Link to common reference material on the Intarwebs
+#   Link to useful reference material on the Intarwebs
 #
 # Commands:
-#   !js
-#   empathy js
-#   empathy javascript
-#   !css
-#   empathy css
-#   !html
-#   empathy html
+#   !css <search term>
+#   !html <search term>
+#   !js <search term>
+#   !dom <search term>
+#   !jquery <search term>
+#   !php <search term>
+#   !python <search term>
 #
 # Notes:
 #   PLEASE ADD TO THIS.
 
-js = 'MDN Javascript Reference | https://developer.mozilla.org/en-US/docs/JavaScript/Reference'
-css = 'MDN CSS Reference | https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference'
-html = 'WHATWG HTML5 Spec | http://developers.whatwg.org'
+sources =
+  css: 'http://dochub.io/#css/',
+  html: 'http://dochub.io/#html/',
+  js: 'http://dochub.io/#javascript/',
+  dom: 'http://dochub.io/#dom/',
+  jquery: 'http://dochub.io/#jquery/',
+  php: 'http://dochub.io/#php/',
+  python: 'http://dochub.io/#python/'
 
 module.exports = (robot) ->
-  robot.hear /!js/i, (msg) ->
-    msg.send js
-
-  robot.respond /(ja[w|v]ascript(s)?|js)/i, (msg) ->
-    msg.send js
-
-  robot.hear /!css/i, (msg) ->
-    msg.send css
-
-  robot.respond /css/i, (msg) ->
-    msg.send css
-
-  robot.hear /!html/i, (msg) ->
-    msg.send html
-
-  robot.respond /html/i, (msg) ->
-    msg.send html
+  for key in sources
+    robot.hear new Regexp('(!' + key + ')(.*)?')
+      msg.send sources[key] + key
+    robot.respond new Regexp('(' + key + ')(.*)?')
+      msg.send sources[key] + key
 
