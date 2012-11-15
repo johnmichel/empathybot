@@ -27,9 +27,9 @@ module.exports = (robot) ->
     query = sources[key] + key
 
     hearPattern = new RegExp('(!' + key + ')(.*)?', 'i')
-    robot.hear hearPattern ->
+    robot.hear hearPattern, msg ->
       msg.send query
 
     respondPattern = new RegExp('(' + key + ')(.*)?', 'i')
-    robot.respond respondPattern ->
+    robot.respond respondPattern, msg ->
       msg.send query
