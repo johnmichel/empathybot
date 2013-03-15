@@ -132,33 +132,9 @@ Please check out the [deploying hubot onto UNIX][deploy-unix] and
 [deploy-heroku]: https://github.com/github/hubot/wiki/Deploying-Hubot-onto-Heroku
 [deploy-unix]: https://github.com/github/hubot/wiki/Deploying-Hubot-onto-UNIX
 [deploy-windows]: https://github.com/github/hubot/wiki/Deploying-Hubot-onto-Windows
-
-## Campfire Variables
-
-If you are using the Campfire adapter you will need to set some environment
-variables. Refer to the documentation for other adapters and the configuraiton
-of those, links to the adapters can be found on the [hubot wiki][hubot-wiki].
-
-Create a separate Campfire user for your bot and get their token from the web
-UI.
-
-    % heroku config:add HUBOT_CAMPFIRE_TOKEN="..."
-
-Get the numeric IDs of the rooms you want the bot to join, comma delimited. If
-you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42` 
-and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like this:
-
-    % heroku config:add HUBOT_CAMPFIRE_ROOMS="42,1024"
-
-Add the subdomain hubot should connect to. If you web URL looks like
-`http://mysubdomain.campfirenow.com` then you'd add it like this:
-
-    % heroku config:add HUBOT_CAMPFIRE_ACCOUNT="mysubdomain"
-
 [hubot-wiki]: https://github.com/github/hubot/wiki
 
 ## Restart the bot
 
 You may want to get comfortable with `heroku logs` and `heroku restart`
 if you're having issues.
-
