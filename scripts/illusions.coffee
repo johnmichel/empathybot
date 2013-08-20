@@ -17,5 +17,5 @@
 #   johnmichel
 
 module.exports = (robot) ->
-  robot.respond /\b(magic|illusion)\b/i, (message) ->
-    message.reply "No, they're illusions http://bite-prod.s3.amazonaws.com/wp-content/uploads/2012/05/Gob.gif"
+  robot.hear /\b(magic|illusion)\b/i, (message) ->
+    message.reply "No, they're illusions http://f.cl.ly/items/2W3u3F1g0a290G3C1f0p/gob.gif"
