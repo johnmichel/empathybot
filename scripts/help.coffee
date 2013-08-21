@@ -48,12 +48,7 @@ helpContents = (name, commands) ->
     <div class="commands">
       #{commands}
     </div>
-    <script>
-        var _gaq=[['_setAccount',''UA-36161240-1'],['_setDomainName', 'herokuapp.com'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
+    <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-36161240-2', 'empathybot.herokuapp.com');ga('send','pageview')</script>
   </body>
 </html>
   """
